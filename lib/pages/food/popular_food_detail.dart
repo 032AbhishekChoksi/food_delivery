@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/utils/dimensions.dart';
 import 'package:food_delivery/widgets/app_column.dart';
 import 'package:food_delivery/widgets/app_icon.dart';
+import 'package:food_delivery/widgets/exandable_text_widget.dart';
 
 import '../../utils/colors.dart';
 import '../../widgets/big_text.dart';
@@ -17,6 +18,7 @@ class PopularFoodDetail extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(children: [
+        //background image
         Positioned(
             left: 0,
             right: 0,
@@ -30,6 +32,7 @@ class PopularFoodDetail extends StatelessWidget {
                 )
               ),
         )),
+        //icon widgets
         Positioned(
           top: Dimensions.height45,
             left: Dimensions.width20,
@@ -41,6 +44,7 @@ class PopularFoodDetail extends StatelessWidget {
                 AppIcon(icon: Icons.shopping_cart_outlined)
               ],
             )),
+        //introduction of food
         Positioned(
             left: 0,
             right: 0,
@@ -60,9 +64,13 @@ class PopularFoodDetail extends StatelessWidget {
                 children: [
                   AppColumn(text: "Chinese Side"),
                   SizedBox(height: Dimensions.height20,),
-                  BigText(text: "Introduce")
+                  BigText(text: "Introduce"),
+                  SizedBox(height: Dimensions.height20,),
+                  //expandable text widget
+                  Expanded(child: SingleChildScrollView(child: ExpandableTextWidget(text: "The Chinese food types mainly include rice, noodles, vegetables, eggs and fishes, which vary from one region to another.The Chinese food types mainly include rice, noodles, vegetables, eggs and fishes, which vary from one region to another.The Chinese food types mainly include rice, noodles, vegetables, eggs and fishes, which vary from one region to another.The Chinese food types mainly include rice, noodles, vegetables, eggs and fishes, which vary from one region to another.")))
                 ],),
-        ))
+        )),
+
       ],),
       bottomNavigationBar: Container(
         height: Dimensions.bottomHeightBar,
